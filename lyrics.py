@@ -40,7 +40,6 @@ end if"""
 
 def request_sg_song_info(song_title, artist_name):
     sg_base_url = config["sg_base_url"]
-    sg_key = config["sg_key"]
 
     search_url = sg_base_url + "/api/music/search"
     data = dict(
@@ -53,15 +52,15 @@ def request_sg_song_info(song_title, artist_name):
 
 
 def request_sg_song_lyrics(song_id):
-    genius_base_url = config["sg_base_url"]
-    lyrics_url = genius_base_url + "/api/music/lrc"
+    gs_base_url = config["sg_base_url"]
+    lyrics_url = gs_base_url + "/api/music/lrc"
     data = dict(list(base_params.items()) + [("id", song_id)])
     response = requests.get(lyrics_url, params=data)
     return response.json()
 
 
 def get_lyrics_from_sg(song_title, artist_name):
-    song_info = request_sg_song_info(song_title, artist_name)
+    song_info = request_sg_song_info(convert(song_title, 'zh-cn'), artist_name)
     remote_song_info = None
 
     # print("song_info: " + json.dumps(song_info, indent=2, ensure_ascii=False))
