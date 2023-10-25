@@ -1,0 +1,19 @@
+
+[project]
+name = "macos-spotify-lyrics"
+version = "0.1.0"
+description = "Short script to get the currently playing song from Spotify, scrape its lyrics from SGAPI and print the lyrics on your macOS terminal."
+authors = [
+    {name = "Chuck", email = "tengchenc@gmail.com"},
+]
+dependencies = ["python-dotenv==1.0.0", "requests==2.30.0", "zhconv==1.4.3"]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+[project.scripts]
+macos-spotify-lyrics = "app.cli:main"
+
