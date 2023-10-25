@@ -84,6 +84,3 @@ def print_spotify_now_playing_lyrics():
     print()
     print(lyrics)
     print()
-
-
-print_spotify_now_playing_lyrics()
