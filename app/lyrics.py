@@ -8,9 +8,11 @@ from zhconv import convert
 
 load_dotenv()
 
+SG_BASE_URL="https://api.shangui.cc"
+
 config = {
     "sg_key": os.getenv("SG_KEY"),
-    "sg_base_url": os.getenv("SG_BASE_URL"),
+    "sg_base_url": SG_BASE_URL,
 }
 
 base_params = {"key": str(config["sg_key"]), "type": "kg", "format": 1}
