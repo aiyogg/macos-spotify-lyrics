@@ -89,8 +89,10 @@ def get_lyrics_from_sg(song_title, artist_name):
 
     if remote_song_info:
         song_id = remote_song_info["id"]
-        lyrics = request_sg_song_lyrics(song_id)["data"].strip("\r\n")
-        return lyrics
+        response = request_sg_song_lyrics(song_id)
+        if response is not None:
+            lyrics = response.get("data", "").strip("\r\n")
+            return lyrics
 
 
 def print_spotify_now_playing_lyrics():
